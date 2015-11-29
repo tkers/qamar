@@ -1,0 +1,19 @@
+{
+  "name": "qamar",
+  "version": "0.0.1",
+  "description": "JS Library that drives qamar.shabaka",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lapixx/Qamar.git"
+  },
+  "author": "Tijn Kersjes <tijn@divbyzero.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lapixx/Qamar/issues"
+  },
+  "homepage": "https://github.com/Lapixx/Qamar#readme"
+}
