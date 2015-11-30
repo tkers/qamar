@@ -1,27 +1,28 @@
 "use strict";
 
-// methods
+// calculation methods
 const Methods = require("./lib/calculationMethods");
 
-// geo
+// salat names for convenience
+const salatNames = require("./lib/salatNames");
+
+// geo dependencies
 const getQibla = require("./lib/geo/getQibla");
 
-// times
+// time dependencies
 const getSalatTimes = require("./lib/time/getSalatTimes");
 const getCurrent = require("./lib/time/getCurrent");
 const isSawm = require("./lib/time/isSawm");
 const TimeUtils = require("./lib/time/TimeUtils");
 const hoursToString = TimeUtils.hoursToString;
 
+// returns the salat times as formatted "hh:mm" strings
 const getTimes = opts => {
     const times = getSalatTimes(opts);
     return times.map(hoursToString);
 }
 
-// strings
-const salatNames = require("./lib/salatNames");
-
-// utility function
+// utility function that returns all available info
 const getInfo = opts => {
     const times = getSalatTimes(opts);
     const curr = getCurrent(times, opts.date);
