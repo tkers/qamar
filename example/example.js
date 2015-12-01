@@ -1,7 +1,7 @@
 "use strict";
 
 // import lib
-const Qamar = require("./index");
+const Qamar = require("../index");
 
 // user settings
 const settings = {

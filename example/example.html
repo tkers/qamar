@@ -1,0 +1,66 @@
+<html>
+
+<head>
+
+    <script type="text/javascript" src="../dist/qamar.js"></script>
+
+    <script type="text/javascript">
+
+        function foundMe(position) {
+
+        	if(position.coords.accuracy > 1000)
+        		return;
+
+        	var lat = Math.round(position.coords.latitude * 100000) / 100000;
+        	var lng = Math.round(position.coords.longitude * 100000) / 100000;
+
+            var settings = {
+                angles: Qamar.Methods.Angles.JAFARI,
+                asr: Qamar.Methods.Asr.STANDARD,
+                highLatitudes: Qamar.Methods.HighLatitudes.ANGLE_BASED,
+                midnight: Qamar.Methods.Midnight.SHIA,
+                latitude: lat,
+                longitude: lng
+            };
+
+            function refresh() {
+                var info = Qamar.getInfo(settings);
+                displayInfo(info);
+            }
+
+            window.setTimeout(refresh, 60000);
+            refresh();
+        }
+
+        function displayInfo(info) {
+            for (var i = 0; i < info.times.length; i++) {
+                var elem = document.getElementById("time" + i);
+                elem.innerHTML = info.names[i] + ": " + info.times[i];
+                if (info.current[0] === i) {
+                    elem.style.backgroundColor = "#FFFFAA";
+                    elem.style.fontWeight = "bold";
+                }
+            }
+        }
+
+        window.onload = function () {
+            navigator.geolocation.getCurrentPosition(foundMe);
+        };
+    </script>
+
+</head>
+
+<body>
+
+    <div id="time0"></div>
+    <div id="time1"></div>
+    <div id="time2"></div>
+    <div id="time3"></div>
+    <div id="time4"></div>
+    <div id="time5"></div>
+    <div id="time6"></div>
+    <div id="time7"></div>
+
+</body>
+
+</html>
